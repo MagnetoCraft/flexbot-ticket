@@ -14,4 +14,25 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.astr4y</groupId>
+            <artifactId>JFA</artifactId>
+            <version>0.0.4-alpha_DEV</version> <!-- replace $version with the latest version -->
+            <!-- Optionally disable audio natives to reduce jar size by excluding `opus-java` and `tink` -->
+            <exclusions>
+                <!-- required for encoding audio into opus, not needed if audio is already provided in opus encoding -->
+                <exclusion>
+                    <groupId>club.minnced</groupId>
+                    <artifactId>opus-java</artifactId>
+                </exclusion>
+                <!-- required for encrypting and decrypting audio -->
+                <exclusion>
+                    <groupId>com.google.crypto.tink</groupId>
+                    <artifactId>tink</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
 </project>
