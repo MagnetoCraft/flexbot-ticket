@@ -15,8 +15,8 @@ public class MessageListener extends ListenerAdapter {
         Message message = event.getMessage();
         String content = event.getMessage().getContentRaw();
 
-        if(content.startsWith("!ping")){
-            message.reply("pong").queue();
+        if(content.startsWith("/help")){
+            message.reply("Here is the list of the bot commands :\n- `/ticket open` is used to open a ticket.\n- `/ticket config` is only available for admin users and allows them to configure the ticket system.").queue();
         }
     }
 }
