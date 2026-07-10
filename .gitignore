@@ -1,3 +1,8 @@
+configs/
+saves/
+
+### Auto generated ###
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -6,6 +11,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea/
+.junie/
 #.idea/modules.xml
 #.idea/jarRepositories.xml
 #.idea/compiler.xml

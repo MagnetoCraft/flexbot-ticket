@@ -8,8 +8,10 @@ public class Main {
 
     private static String TOKEN = System.getenv("TOKEN");
 
+    public static JDA jda;
+
     public static void main(String[] args) {
-        JDA jda = JDABuilder.createDefault(TOKEN)
+        jda = JDABuilder.createDefault(TOKEN)
                 // Enables access to message.getContentRaw()
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(new MessageListener())
