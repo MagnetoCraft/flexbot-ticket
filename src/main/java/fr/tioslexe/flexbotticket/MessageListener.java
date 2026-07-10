@@ -28,7 +28,7 @@ public class MessageListener extends ListenerAdapter {
         String content = event.getMessage().getContentRaw();
 
         if(content.startsWith("/help")){
-            message.reply("Here is the list of the bot commands :\n- `/ticket open [title]` is used to open a ticket.\n- `/ticket config` is only available for admin users and allows them to configure the ticket system. (coming soon)").queue();
+            message.reply("Here is the list of the bot commands :\n- `/ticket open [title]` is used to open a ticket with an optional title.\n- `/ticket config` is only available for admin users and allows them to configure the ticket system. (coming soon)").queue();
         }else if(content.startsWith("/ticket open")){
             Guild guild = event.getGuild();
             try {
