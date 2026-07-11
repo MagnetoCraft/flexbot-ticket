@@ -16,7 +16,9 @@ Here are all the bot commands:
 ## 💾 Installation
 
 To add the bot to your server, you can use the [invite link](https://web.fluxer.app/oauth2/authorize?client_id=1524925097205309440&scope=bot&permissions=268435472).
+
 If you want to self-host the bot, you can ask for help in my [Fluxer Community](https://fluxer.gg/diZjBcsq).
+To self-host the bot, you need to create an environment variable named `TOKEN` with your bot token.
 
 ### Needed permissions
 Here are all the permissions the bot needs in case you want to self-host FlexBot Ticket:
