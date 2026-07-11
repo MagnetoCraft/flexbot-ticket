@@ -1,6 +1,11 @@
 package fr.tioslexe.flexbotticket.save;
 
 public class Save {
+    // Config
+    private String categoryId;
+    private String roleId;
+
+    // Save
     private Integer ticketCount;
 
     // used by Jackson
@@ -8,8 +13,25 @@ public class Save {
 
     }
 
-    public Save(Integer ticketCount) {
+    public Save(String categoryId, Integer ticketCount) {
+        this.categoryId = categoryId;
         this.ticketCount = ticketCount;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
     public Integer getTicketCount() {
@@ -20,7 +42,9 @@ public class Save {
         this.ticketCount = ticketCount;
     }
 
-    public void incrementTicketCount() {
+    // synchronized to avoid multiple channels having the same ticket number
+    public synchronized Integer incrementTicketCount() {
         this.ticketCount++;
+        return this.ticketCount;
     }
 }
