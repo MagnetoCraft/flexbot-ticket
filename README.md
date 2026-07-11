@@ -12,6 +12,7 @@ This bot is made with [JFA](https://github.com/Fluxer-JFA/JFA) and [J4Fluxer](ht
 Here are all the bot commands:
 - `/help`: Shows all available commands
 - `/ticket open [title]`: Open a ticket with an optional title.
+- `/ticket setrole [role]`: Is only available for admin users and allows them to set the role (role name or role ID) that will handle tickets. If no roles are specified, only admins will have access to ticket channels.
 
 ## 💾 Installation
 
