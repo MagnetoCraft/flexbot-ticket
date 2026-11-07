@@ -36,20 +36,29 @@ public class MessageListener extends ListenerAdapter {
                 Save save = SaveManager.getSave(guild);
 
                 Integer ticketCount = save.incrementTicketCount();
-                SaveManager.save(guild, save);
 
                 String channelName = String.valueOf(ticketCount);
                 if(content.length() > 13){
                     channelName += "-" + content.substring(13);
                 }
 
-                String categoryId = SaveManager.getSave(guild).getCategoryId();
+                String categoryId = save.getCategoryId();
+
 //                createTextChannel doesn't work yet with JFA
 //                Category category = Main.jda.getCategoryById(categoryId);
 //                TextChannel channel = category.createTextChannel(String.valueOf(ticketCount)).complete();
 //                channel.sendMessage(openingMessage);
 
-                TextChannel channel = TmpUtility.createChannel(guild.getId(), categoryId, channelName);
+                TextChannel channel;
+                try {
+                    channel = TmpUtility.createChannel(guild.getId(), categoryId, channelName);
+                } catch (RuntimeException e) {
+                    // The category doesn't exist anymore so we create another one
+                    categoryId = Utility.createTicketCategory(guild);
+                    save.setCategoryId(categoryId);
+                    channel = TmpUtility.createChannel(guild.getId(), categoryId, channelName);
+                }
+                SaveManager.save(guild, save);
 
                 TextChannelImpl jdaChannel = new TextChannelImpl(Long.valueOf(channel.getId()), (GuildImpl) guild);
 

@@ -1,6 +1,6 @@
 package fr.tioslexe.flexbotticket.save;
 
-import fr.tioslexe.flexbotticket.TmpUtility;
+import fr.tioslexe.flexbotticket.Utility;
 import net.dv8tion.jda.api.entities.Guild;
 import tools.jackson.databind.ObjectMapper;
 
@@ -39,7 +39,7 @@ public class SaveManager {
         // createCategory doesn't work yet with JFA
 //        Category category = guild.createCategory("Tickets").complete();
 //        String categoryId = category.getId();
-        String categoryId = TmpUtility.createCategory(guild.getId(), "Tickets");
+        String categoryId = Utility.createTicketCategory(guild);
 
         Save save = new Save(categoryId, 0);
         save(guild, save);
